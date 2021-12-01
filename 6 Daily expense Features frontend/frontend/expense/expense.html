@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Expense Tracker</title>
+</head>
+<body>
+    
+    
+    <div id="myChart" style="width:100%; max-width:600px; height:500px;"></div> 
+
+    <div class="container">
+        <h1>add expenses</h1>
+        <form onsubmit="expenseSubmit(event)">
+            <input type="number" name="expenseAmount" id="expenseAmount" placeholder="Expense Amount">
+            <select name="category" id="category" placeholder="category">
+                <option value="">--category--</option>
+                <option value="rental">rental</option>
+                <option value="food">food</option>
+                <option value="electricity">electricity</option>
+                <option value="grocery">grocery</option>
+                <option value="medical">medical</option>
+                <option value="travel">travel</option>
+              </select>
+              <textarea name="description" id="" cols="45" rows="5" placeholder="description"></textarea>
+              <button class="addExpenseBtn" type="submit">Add Expense</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="expense.js"></script>
+</body>
+</html>
