@@ -5,19 +5,13 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     transition: 0.2s;
-    
 }
 body{
     display: flex;
     background-color: aliceblue;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-}
-.chart{
-    background-color: transparent;
-    border-radius: 40;
-    background-color: #1d3557;
 }
 .container{
     display: flex;
@@ -32,12 +26,8 @@ body{
     padding-top: 1rem;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
 }
-.container p{
-    margin-top: 1rem;
-    color: #1d3557da;
-    width: 20rem;
-    text-align: center;
-    padding-top: 1rem;
+h1{
+    margin-top: 4rem;
 }
 form{
     display: flex;
@@ -48,6 +38,7 @@ form{
     background-color: rgb(255, 255, 255);
     height: 23rem;
     width: 20rem;
+    margin-top: 1rem;
 }
 .inputContainer{
     background-color: rgb(255, 255, 255);
@@ -66,7 +57,14 @@ input{
     height: 2rem;
     margin-bottom: 2rem;
 }
-.addExpenseBtn{
+
+span{
+    font-size: .8rem;
+    color: #1d3557b2
+}
+
+/* login page */
+.loginBtn{
     background-color: #a8dadc;
     color: #1d3557;
     outline: none;
@@ -77,27 +75,7 @@ input{
     transition: .2s;
     margin-bottom: 2rem;
 }
-.addExpenseBtn:hover{
+.loginBtn:hover{
     background-color:#1d3557;
     color: azure;
-}
-span{
-    font-size: .8rem;
-    color: #1d3557b2
-}
-
-/* expense */
-select{
-    height: 2rem;
-    width: 10rem;
-    border: none;
-    outline: none;
-    border: 1px solid thistle;
-    border-radius: 3px;
-}
-textarea{
-    outline: none;
-    border: none;
-    border: 1px solid thistle;
-    border-radius: 3px;
 }
