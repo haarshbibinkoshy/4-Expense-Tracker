@@ -1,0 +1,66 @@
+require('dotenv').config()
+const express=require('express')
+const bodyParser=require('body-parser')
+const cors=require('cors')
+
+const sequelize=require('./utils/database')
+//routes
+const signupRoute=require('./routes/signup')
+const loginRoute=require('./routes/login')
+const expenseRoute=require('./routes/expense')
+const purchaseRoutes=require('./routes/purchase')
+const isPremium=require('./routes/isPremium')
+const leaderboard=require('./routes/leaderboard')
+const forgotpassword=require('./routes/forgotPassword')
+//models
+const User = require('./models/users')
+const Expense = require('./models/expense')
+const Order = require('./models/orders')
+const Leaderboard = require('./models/leaderboard')
+const Password = require('./models/password')
+
+
+
+
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(signupRoute)
+app.use(loginRoute)
+app.use(purchaseRoutes)
+app.use(expenseRoute)
+app.use(isPremium)
+app.use(leaderboard)
+app.use(forgotpassword)
+
+app.get(`/totalExpense`,async(req, res, next) =>{
+    try {
+        const [result,metadata]=await sequelize.query("SELECT * FROM expenses WHERE userId=4 and category='rental'")
+console.log(result);
+res.json(result)
+    } catch (error) {
+        console.log(error);
+    }
+
+})
+
+User.hasMany(Expense)
+Expense.belongsTo(User)
+
+User.hasMany(Order);
+Order.belongsTo(User);
+
+User.hasMany(Password)
+Password.belongsTo(User)
+
+
+
+sequelize
+// .sync({force: true})
+.sync()
+.then(() => {
+console.log(`>>>>>>>>>>>>>>>>table created`);
+}).catch((err) => {
+    console.log(`>>>>>>>>>>>>>`,err);
+})
+app.listen(3000)
